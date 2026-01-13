@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data.status);
+          console.log(data.status);
+          if(data.status == 1){
+            
+          }
           document.getElementById("qtn-" + CardId).innerHTML = data.status;
           document.getElementById("qtnt-" + CardId).innerHTML = data.status;
           document.getElementById("totalprice").innerHTML = data.price;
@@ -55,8 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const orderbtn = document.querySelectorAll(".place-order");
   orderbtn.forEach((btn) => {
     btn.addEventListener("click", function () {
-      console.log("Hello Every one");
-      fetch("../app/contollers/ordercontroller.php");   
+      const from = new FormData();
+      from.append('id',23);
+      fetch("../app/contollers/ordercontroller.php", {
+           method:"post",
+           body:from
+      })  
+      .then(
+        res => res.json()
+      )
+       .then((data) => {
+        console.log(data);
+       })  
     });
   });
 });

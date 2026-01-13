@@ -20,7 +20,7 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
                     <div class="card p-3 mb-4" id="card1-<?php echo $data[$key]['id']; ?>">
                         <div class="d-flex justify-content-between ">
                             <div class="d-flex">
-                                <div><img src="<?php echo $data[$key]['product_image'] ?>" height="70px" alt="hello"></div>
+                                <div><img src="<?php echo $data[$key]['product_image'] ?>" height="70px" alt="hello"  class="me-3" ></div>
                                 <div>
                                     <div> <?php echo $data[$key]['productname'] ?></div>
                                     <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
