@@ -26,8 +26,8 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
                                     <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                 </div>
                             </div>
-                            <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" data-id="<?php echo $data[$key]['id']; ?>">-</button>
-                                <span id="qtnt-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus">+</button>
+                            <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" data-id="<?php echo $data[$key]['id']; ?>" id="min-<?php echo $data[$key]['id']; ?>">-</button>
+                                <span id="qtnt-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus" id="plus-<?php echo $data[$key]['id']; ?>">+</button>
                                 <button type="button" class="btn btn-danger qtn-rem" data-id="<?php echo $data[$key]['id']; ?>">Remove</button>
                             </div>
                         </div>

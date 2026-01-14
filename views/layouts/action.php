@@ -83,8 +83,8 @@
                                              <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                          </div>
                                      </div>
-                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" data-id="<?php echo $data[$key]['id']; ?>" >-</button>
-                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"  ><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>"  data-action="plus" >+</button>
+                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" id="min1-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>" >-</button>
+                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"  ><?php echo $data[$key]['quantity'] ?></span> <button  class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>"  data-action="plus" >+</button>
                                          <button type="button" class="btn btn-danger qtn-rem"  data-id="<?php echo $data[$key]['id']; ?>" >Remove</button>
                                      </div>
                                  </div>

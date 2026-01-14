@@ -14,9 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data.status);
-          if(data.status == 1){
-            
+          // console.log(data.status);
+          if(data.status < 2 ){
+            document.getElementById("min-" + CardId).disabled = true;
+            document.getElementById("min1-" + CardId).disabled = true;
+          }
+          else {
+            document.getElementById("min-" + CardId).disabled = false;
+            document.getElementById("min1-" + CardId).disabled = false;
           }
           document.getElementById("qtn-" + CardId).innerHTML = data.status;
           document.getElementById("qtnt-" + CardId).innerHTML = data.status;
@@ -65,11 +70,28 @@ document.addEventListener("DOMContentLoaded", function () {
            body:from
       })  
       .then(
-        res => res.json()
+        res => res.textx()
       )
-       .then((data) => {
+       .then(data => {
         console.log(data);
        })  
     });
   });
+  // const token = document.querySelectorAll(".Create-token");
+  // token.forEach((btn) => {
+  //   btn.addEventListener("click",function() {
+  //     console.log("Hello Every One ");
+  //     fetch("../app/contollers/tokencreatecontroller.php",{
+  //       method:"post"
+  //     })
+  //     .then(
+  //       res => res.json()
+  //     )
+  //     .then(
+  //       data =>{
+  //          console.log(data);
+  //       }
+  //     )
+  //   })
+  // })
 });
