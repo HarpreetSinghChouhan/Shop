@@ -20,13 +20,13 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
                     <div class="card p-3 mb-4" id="card1-<?php echo $data[$key]['id']; ?>">
                         <div class="d-flex justify-content-between ">
                             <div class="d-flex">
-                                <div><img src="<?php echo $data[$key]['product_image'] ?>" height="70px" alt="hello"  class="me-3" ></div>
+                                <div><img src="<?php echo $data[$key]['product_image'] ?>" height="70px" width="70px" alt="hello" class="me-3"></div>
                                 <div>
                                     <div> <?php echo $data[$key]['productname'] ?></div>
-                                    <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
+                                    <div>₹<?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                 </div>
                             </div>
-                            <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" data-id="<?php echo $data[$key]['id']; ?>" id="min-<?php echo $data[$key]['id']; ?>">-</button>
+                            <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" data-id="<?php echo $data[$key]['id']; ?>" id="min1-<?php echo $data[$key]['id']; ?>">-</button>
                                 <span id="qtnt-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus" id="plus-<?php echo $data[$key]['id']; ?>">+</button>
                                 <button type="button" class="btn btn-danger qtn-rem" data-id="<?php echo $data[$key]['id']; ?>">Remove</button>
                             </div>
@@ -39,17 +39,31 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
 
                 echo  "</div> <div class='text-end mt-3' ><b> Total price : ₹<span id='totalprice1' >" .
                     $totalprice . "</span> </b></div>";
-            } else {
-
+            } 
+            else {
                 echo "<h5> <b> ADD Item In Card <b></h5>";
             }
 
             ?>
+
+            <div>
+                <div id="checkToken">
+                    <form action="../app/controllers/couponcheckController.php" method="post" class="ms-auto" style="width:min(400px,90vw)" >
+                        <label for="" class="form-label">Coupon : </label>
+                        <input type="text" name="Token" id="Token" placeholder="Enter Valid Token Coupon" class="form-control" required>
+                        <div class="text-end mt-4" >
+                            <input type="submit" value="Check" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="mt-4 text-end">
-             <a href="../public/index.php"><button type="button" class="btn btn-secondary">Add More product</button></a>
-            <button type="button"  class="btn btn-primary place-order">Order Place</button></div>
+                <a href="../public/index.php"><button type="button" class="btn btn-secondary">Add More product</button></a>
+                <button type="button" class="btn btn-primary place-order">Order Place</button>
+            </div>
         </div>
-        
+
     </div>
 </main>
 <?php

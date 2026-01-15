@@ -44,7 +44,7 @@
                          <li class="nav-item"><a href="userdata.php" class="nav-link">USERS</a></li>
                          <li class="nav-item"><a href="" class="nav-link">Hello</a></li>
                          <li class="nav-item"><a href="../public/logout.php" onclick="return confirm('Are you Want logout')" class="nav-link">LOG OUT</a></li>
-                         <li class="nav-item"><a href="" class="nav-link">Hello</a></li>
+                         <li class="nav-item"><a href="coupon.php" class="nav-link">CREATE COUPON</a></li>
                          <li class="nav-item"><a href="Product.php" class="nav-link">ADD NEW PRODUCT</a></li>
                      </ul>
                  </div>
@@ -83,8 +83,8 @@
                                              <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                          </div>
                                      </div>
-                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn-btn" data-action="minus" id="min1-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>" >-</button>
-                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"  ><?php echo $data[$key]['quantity'] ?></span> <button  class="btn btn-primary qtn-btn" data-id="<?php echo $data[$key]['id']; ?>"  data-action="plus" >+</button>
+                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn2-btn" data-action="minus" id="min-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>" >-</button>
+                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"  ><?php echo $data[$key]['quantity'] ?></span> <button  class="btn btn-primary qtn2-btn" data-id="<?php echo $data[$key]['id']; ?>"  data-action="plus" >+</button>
                                          <button type="button" class="btn btn-danger qtn-rem"  data-id="<?php echo $data[$key]['id']; ?>" >Remove</button>
                                      </div>
                                  </div>

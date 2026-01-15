@@ -14,20 +14,40 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data.status);
-          if(data.status < 2 ){
-            document.getElementById("min-" + CardId).disabled = true;
+          if (data.status < 2) {
             document.getElementById("min1-" + CardId).disabled = true;
-          }
-          else {
-            document.getElementById("min-" + CardId).disabled = false;
+          } else {
             document.getElementById("min1-" + CardId).disabled = false;
           }
-          document.getElementById("qtn-" + CardId).innerHTML = data.status;
           document.getElementById("qtnt-" + CardId).innerHTML = data.status;
-          document.getElementById("totalprice").innerHTML = data.price;
           document.getElementById("totalprice1").innerHTML = data.price;
         });
+    });
+  });
+  const button2 = document.querySelectorAll(".qtn2-btn");
+  button2.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const CardId = this.dataset.id;
+      const actions = this.dataset.action;
+      //   console.log("Hello Every One"  , );
+      const form = new FormData();
+      form.append("ids", CardId);
+      form.append("action", actions);
+      fetch("../app/controllers/quantitycontroller.php", {
+        method: "POST",
+        body: form,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.status < 2) {
+            document.getElementById("min-" + CardId).disabled = true;
+          } else {
+            document.getElementById("min-" + CardId).disabled = false;
+          }
+          document.getElementById("qtn-" + CardId).innerHTML = data.status;
+
+          document.getElementById("totalprice").innerHTML = data.price;
+         });
     });
   });
   const removebtn = document.querySelectorAll(".qtn-rem");
@@ -64,34 +84,51 @@ document.addEventListener("DOMContentLoaded", function () {
   orderbtn.forEach((btn) => {
     btn.addEventListener("click", function () {
       const from = new FormData();
-      from.append('id',23);
-      fetch("../app/contollers/ordercontroller.php", {
-           method:"post",
-           body:from
-      })  
-      .then(
-        res => res.textx()
-      )
-       .then(data => {
-        console.log(data);
-       })  
+      from.append("id", 23);
+      fetch("../app/controllers/ordercontroller.php", {
+        method: "post",
+        body: from,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
     });
   });
-  // const token = document.querySelectorAll(".Create-token");
-  // token.forEach((btn) => {
-  //   btn.addEventListener("click",function() {
-  //     console.log("Hello Every One ");
-  //     fetch("../app/contollers/tokencreatecontroller.php",{
-  //       method:"post"
+  const token = document.querySelectorAll("#Token");
+  token.forEach((btn) => {
+    btn.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = new FormData(this);
+      fetch("../app/controllers/tokencreatecontroller.php", {
+        method: "post",
+        body: form,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.status == "success") {
+            alert("token are created");
+            window.location.href = "index.php";
+          }
+        });
+    });
+  });
+  // const tokenclaim = document.querySelectorAll("#checkToken");
+  // tokenclaim.forEach((btn) => {
+  //   btn.addEventListener("submit", function (e) {
+  //     e.preventDefault();
+  //     //  console.log("Hello Every One");
+  //     const form = new FormData(this);
+  //     console.log(form);
+  //     fetch("../app/controllers/couponcheckCotroller.php", {
+  //       method: "POST",
+  //       body: form,
   //     })
-  //     .then(
-  //       res => res.json()
-  //     )
-  //     .then(
-  //       data =>{
-  //          console.log(data);
-  //       }
-  //     )
-  //   })
-  // })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //       });
+  //     });
+  // });
 });
