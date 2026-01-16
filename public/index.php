@@ -3,7 +3,7 @@ require '../views/layouts/headhtml.php';
 require_once '../views/layouts/action.php';
 require '../app/config/database.php';
 ?>
-<main class="flex-grow-1 flex-shrink-0 mb-5 pb-4">
+<main class="flex-grow-1 flex-shrink-0 mb-5 ">
     <div class="container mb-4">
         <div class="row">
             <?php

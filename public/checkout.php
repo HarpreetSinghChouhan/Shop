@@ -5,7 +5,7 @@ require '../app/config/database.php';
 $userId = $_SESSION['user_id'];
 $sql = "SELECT * FROM card WHERE user_id=$userId";
 ?>
-<main class="p-5 ">
+<main >
     <div class="container mt-3">
         <?php
 
@@ -39,29 +39,57 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
 
                 echo  "</div> <div class='text-end mt-3' ><b> Total price : ₹<span id='totalprice1' >" .
                     $totalprice . "</span> </b></div>";
-            } 
-            else {
+            } else {
                 echo "<h5> <b> ADD Item In Card <b></h5>";
             }
 
             ?>
 
-            <div>
-                <div id="checkToken">
-                    <form action="../app/controllers/couponcheckController.php" method="post" class="ms-auto" style="width:min(400px,90vw)" >
-                        <label for="" class="form-label">Coupon : </label>
-                        <input type="text" name="Token" id="Token" placeholder="Enter Valid Token Coupon" class="form-control" required>
-                        <div class="text-end mt-4" >
-                            <input type="submit" value="Check" class="btn btn-primary">
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <div class="mt-4 text-end">
                 <a href="../public/index.php"><button type="button" class="btn btn-secondary">Add More product</button></a>
-                <button type="button" class="btn btn-primary place-order">Order Place</button>
+                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#tokencheckmodel"> Order Place</button>
             </div>
+        </div>
+        <div>
+            <div class="modal" id="tokencheckmodel">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">TOKEN CHECK</h4>
+                            <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body border">
+                            <div id="">
+                                <form id="checkToken" class="ms-auto" method="post">
+                                    <label for="" class="from-label mb-2">Coupon :</label>
+                                    <input type="text" name="Token" id="Token" placeholder="Enter Valid Token Coupon" class="form-control" required>
+                                    <div id="error" class="text-danger">
+
+                                    </div>
+                                    <div class="text-end mt-3">
+                                        <input type="submit" value="Check Token" class="btn btn-primary">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="b">
+                                <div>
+                                    <div id="withtoken" >Price Without Token </div>
+                                    <b>Price ₹<span id="totalp"><?php echo $totalprice ?></span> </b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" value="back to checkout" class="btn btn-warning" data-bs-dismiss="modal">
+                            <input type="button" value="order" class="btn btn-primary">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>

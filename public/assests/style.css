@@ -25,8 +25,8 @@
   opacity: 0.9;
 }
 #NavBarId {
-  /* background: linear-gradient(15deg, #e18383 , #81ff81 ,#ce71ce); */
-  animation: trasform 5s infinite cubic-bezier(0.46, 0.03, 0.4, -0.26);
+  background: linear-gradient(15deg, #e18383 , #81ff81 ,#ce71ce);
+  /* animation: trasform 5s infinite cubic-bezier(0.46, 0.03, 0.4, -0.26); */
 }
 @keyframes trasform {
   0% {

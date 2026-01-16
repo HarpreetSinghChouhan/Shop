@@ -2,9 +2,9 @@
 include '../views/layouts/headhtml.php';
 include '../views/layouts/action.php';
 ?>
-<main class="mb-5 pb-5 flex-grow-1" >
+<main class="mb-5 flex-grow-1" >
 <div class="container" >
-            <form action="../app/controllers/addproduct.php" class="border p-4 mt-5 me-auto ms-auto rounded" method="post" enctype="multipart/form-data"
+            <form action="../app/controllers/addproduct.php" class="border p-4 mt-3 me-auto ms-auto rounded" method="post" enctype="multipart/form-data"
                 style="width:clamp(300px,80vw,800px);">
                 <div>
                 <span class="mdi mdi-api"></span> ADD PRODUCT
@@ -59,7 +59,7 @@ include '../views/layouts/action.php';
                         </select>
                     </div>
                     <span id="Error" ></span>
-                    <div class="col-md-12 text-end">
+                    <div class="col-md-12 mt-3 text-end">
                         <input type="Submit" value="ADD PRODUCT" class="btn btn-primary" >
                     </div>
                 </div>

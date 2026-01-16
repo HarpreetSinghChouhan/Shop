@@ -27,30 +27,15 @@
     $totalc = count($data, COUNT_NORMAL);
     ?>
 
+
  <header class="sticky-top ">
-     <div class="p-4" id="NavBarId">
-         <div class="container row me-auto ms-auto">
-             <div class="col-md-2">
+     <nav class="navbar navbar-expand-lg bg-light navbar-light px-2">
+         <div class="container">
+             <a class="navbar-brand" href="index.php">
                  <img src="uploads/shopping-nest-horizontal-logo_1.webp" alt="" width="100px">
-             </div>
-             <div class="col-md-8">
-                 <div class="d-flex">
-                     <ul class="nav">
-                         <li class="nav-item"><a href="index.php" class="nav-link">
-                                 <div class="dropdown">
-                                     PRODUCTS
-                                 </div>
-                             </a></li>
-                         <li class="nav-item"><a href="userdata.php" class="nav-link">USERS</a></li>
-                         <li class="nav-item"><a href="" class="nav-link">Hello</a></li>
-                         <li class="nav-item"><a href="../public/logout.php" onclick="return confirm('Are you Want logout')" class="nav-link">LOG OUT</a></li>
-                         <li class="nav-item"><a href="coupon.php" class="nav-link">CREATE COUPON</a></li>
-                         <li class="nav-item"><a href="Product.php" class="nav-link">ADD NEW PRODUCT</a></li>
-                     </ul>
-                 </div>
-             </div>
-             <div class="col-md-2">
-                 <button class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#myModal"> Cart
+             </a>
+             <div class="d-lg-none">
+                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> Cart
                      <span id="Cartn">
                          <?php
 
@@ -58,8 +43,32 @@
                      </span>
                  </button>
              </div>
+             <button class="navbar-toggler" type="button" data-bs-target="#mainnavbar" data-bs-toggle="collapse" aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span></button>
+             <div class="collapse navbar-collapse " id="mainnavbar">
+
+                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                     <li class="nav-item mx-1"><a href="index.php" class="nav-link">PRODUCTS</a></li>
+                     <li class="nav-item mx-1"><a href="userdata.php" class="nav-link">USERS</a></li>
+                     <li class="nav-item mx-1"><a href="vuecoupon.php" class="nav-link">COUPON</a></li>
+                     <li class="nav-item mx-1"><a href="../public/logout.php" onclick="return confirm('Are you Want logout')" class="nav-link">LOG OUT</a></li>
+                     <li class="nav-item mx-1"><a href="coupon.php" class="nav-link">CREATE COUPON</a></li>
+                     <li class="nav-item mx-1"><a href="Product.php" class="nav-link">ADD NEW PRODUCT</a></li>
+                 </ul>
+                 <div class="d-md-none d-lg-flex">
+                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> Cart
+                         <span id="Cartn">
+                             <?php
+
+                                echo $totalc ?>
+                         </span>
+                     </button>
+                 </div>
+
+
+             </div>
          </div>
-     </div>
+     </nav>
  </header>
  <div class="modal" id="myModal">
      <div class="modal-dialog modal-xl ">
@@ -74,7 +83,7 @@
                         if ($totalc > 0) {
                             $totalprice = 0;
                             foreach ($data as $key => $value) { ?>
-                             <div class="card"  id="card-<?php echo $data[$key]['id']; ?>" >
+                             <div class="card" id="card-<?php echo $data[$key]['id']; ?>">
                                  <div class="d-flex justify-content-between">
                                      <div class="d-flex">
                                          <div><img src="<?php echo $data[$key]['product_image'] ?>" height="50px" alt="hello"></div>
@@ -83,18 +92,18 @@
                                              <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                          </div>
                                      </div>
-                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn2-btn" data-action="minus" id="min-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>" >-</button>
-                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"  ><?php echo $data[$key]['quantity'] ?></span> <button  class="btn btn-primary qtn2-btn" data-id="<?php echo $data[$key]['id']; ?>"  data-action="plus" >+</button>
-                                         <button type="button" class="btn btn-danger qtn-rem"  data-id="<?php echo $data[$key]['id']; ?>" >Remove</button>
+                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn2-btn" data-action="minus" id="min-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>">-</button>
+                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn2-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus">+</button>
+                                         <button type="button" class="btn btn-danger qtn1-rem" data-id="<?php echo $data[$key]['id']; ?>">Remove</button>
                                      </div>
                                  </div>
                              </div>
-                           
-                           <?php  
-                           $totalprice += $data[$key]['ofprice'] * $data[$key]['quantity'];
+
+                     <?php
+                                $totalprice += $data[$key]['ofprice'] * $data[$key]['quantity'];
                             }
-                             echo  "<div class='text-end' >Total price : ₹ <span id='totalprice' >".
-                             $totalprice ."</span></div>";
+                            echo  "<div class='text-end' >Total price : ₹ <span id='totalprice' >" .
+                                $totalprice . "</span></div>";
                         } else {
 
                             echo "<h5> <b> ADD Item In Card <b></h5>";
@@ -105,7 +114,7 @@
              </div>
              <div class="modal-footer">
                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                 <a href="checkout.php"><button type="button" class="btn btn-primary" >Check Out</button></a>
+                 <a href="checkout.php"><button type="button" class="btn btn-primary">Check Out</button></a>
              </div>
          </div>
      </div>

@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           document.getElementById("qtnt-" + CardId).innerHTML = data.status;
           document.getElementById("totalprice1").innerHTML = data.price;
+          document.getElementById("totalp").innerHTML = data.price;
         });
     });
   });
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById("qtn-" + CardId).innerHTML = data.status;
 
           document.getElementById("totalprice").innerHTML = data.price;
-         });
+        });
     });
   });
   const removebtn = document.querySelectorAll(".qtn-rem");
@@ -68,13 +69,35 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(data);
             if (data.status === "success") {
               const card2 = document.getElementById("card-" + id);
-              // console.log(style);
               card2.style.display = "none";
-              const card3 = document.getElementById("card1-" + id);
-              // console.log(style);
-              card3.style.display = "none";
               document.getElementById("totalprice").innerHTML = data.price;
+              const card3 = document.getElementById("card1-" + id);
+              card3.style.display = "none";
               document.getElementById("totalprice1").innerHTML = data.price;
+              document.getElementById("totalp").innerHTML = data.price;
+            }
+          });
+      }
+    });
+  });
+  const removebtn1 = document.querySelectorAll(".qtn1-rem");
+  removebtn1.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      if (confirm("If you Want Remove This product Cart")) {
+        const id = this.dataset.id;
+        const form = new FormData();
+        form.append("id", id);
+        fetch("../app/controllers/cartremcontroller.php", {
+          method: "POST",
+          body: form,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.status === "success") {
+              const card2 = document.getElementById("card-" + id);
+              card2.style.display = "none";
+              document.getElementById("totalprice").innerHTML = data.price;
             }
           });
       }
@@ -107,6 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          if (data.status == "Error") {
+            document.getElementById("error").innerHTML = data.message;
+          }
           if (data.status == "success") {
             alert("token are created");
             window.location.href = "index.php";
@@ -114,21 +140,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
-  // const tokenclaim = document.querySelectorAll("#checkToken");
-  // tokenclaim.forEach((btn) => {
-  //   btn.addEventListener("submit", function (e) {
-  //     e.preventDefault();
-  //     //  console.log("Hello Every One");
-  //     const form = new FormData(this);
-  //     console.log(form);
-  //     fetch("../app/controllers/couponcheckCotroller.php", {
-  //       method: "POST",
-  //       body: form,
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //       });
-  //     });
-  // });
+  const tokenclaim = document.querySelectorAll("#checkToken");
+  tokenclaim.forEach((btn) => {
+    btn.addEventListener("submit", function (e) {
+      e.preventDefault();
+      //  console.log("Hello Every One");
+      const form = new FormData(this);
+      console.log(form);
+      fetch("../app/controllers/couponcheckController.php", {
+        method: "POST",
+        body: form,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          if (data.status == "Error") {
+            console.log(data.message);
+            document.getElementById("error").innerHTML = data.message;
+          } else if (data.status == "success") {
+            document.getElementById("withtoken").innerHTML = "Price With Token";
+            document.getElementById("totalp").innerHTML = data.price;
+          }
+        });
+    });
+  });
 });
