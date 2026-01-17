@@ -5,7 +5,7 @@ require '../app/config/database.php';
 $userId = $_SESSION['user_id'];
 $sql = "SELECT * FROM card WHERE user_id=$userId";
 ?>
-<main >
+<main>
     <div class="container mt-3">
         <?php
 
@@ -72,17 +72,21 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
                                     </div>
                                 </form>
                             </div>
-
                             <div class="b">
                                 <div>
-                                    <div id="withtoken" >Price Without Token </div>
+                                    <div id="withtoken">Price Without Token </div>
                                     <b>Price ₹<span id="totalp"><?php echo $totalprice ?></span> </b>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="button" value="back to checkout" class="btn btn-warning" data-bs-dismiss="modal">
-                            <input type="button" value="order" class="btn btn-primary">
+                            <!-- <input type="button" value="back to checkout" class="btn btn-warning" data-bs-dismiss="modal">
+                            <input type="button" value="order" class="btn btn-primary"> -->
+                            <form action="../app/controllers/paytmcontroller.php" id="paytm_form" method="post">
+                                <input type="hidden"  name="paytm_amount" id="paytm_amount">
+                                <input type="button" value="Back to Checkout" data-bs-dismiss="modal" class="btn  btn-primary">
+                                <input type="button" value="order" id="paytmonsubmit" class="btn btn-primary">
+                            </form>
                         </div>
                     </div>
 

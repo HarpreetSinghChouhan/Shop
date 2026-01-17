@@ -3,8 +3,8 @@
 define('PAYTM_ENV', 'STAGING');
 
 // Merchant Credentials (STAGING)
-define('PAYTM_MID', 'YOUR_STAGING_MID');
-define('PAYTM_MERCHANT_KEY', 'YOUR_STAGING_MERCHANT_KEY');
+define('PAYTM_MID', 'AaFnxc50750412350415');
+define('PAYTM_MERCHANT_KEY', 'WIL6afKKkPgxzh3G');
 
 // Paytm Settings
 define('PAYTM_WEBSITE', 'WEBSTAGING');

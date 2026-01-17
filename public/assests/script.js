@@ -103,21 +103,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  const orderbtn = document.querySelectorAll(".place-order");
-  orderbtn.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const from = new FormData();
-      from.append("id", 23);
-      fetch("../app/controllers/ordercontroller.php", {
-        method: "post",
-        body: from,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
-    });
-  });
+  // const orderbtn = document.querySelectorAll(".place-order");
+  // orderbtn.forEach((btn) => {
+  //   btn.addEventListener("click", function () {
+  //     const from = new FormData();
+  //     from.append("id", 23);
+  //     fetch("../app/controllers/ordercontroller.php", {
+  //       method: "post",
+  //       body: from,
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //       });
+  //   });
+  // });
   const token = document.querySelectorAll("#Token");
   token.forEach((btn) => {
     btn.addEventListener("submit", function (e) {
@@ -164,4 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+  // function paytmonsubmit(){
+  const orderbtn = document.querySelectorAll("#paytmonsubmit");
+   orderbtn.forEach((btn)=>{
+    btn.addEventListener("click",function(e){
+    //  console.log("Hello Every One ");
+    let totalprice = document.getElementById("totalp").innerHTML;
+    document.getElementById("paytm_amount").value = totalprice;
+    // console.log(totalprice);
+     document.getElementById("paytm_form").submit();
+    })
+   })
 });

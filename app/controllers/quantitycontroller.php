@@ -2,6 +2,8 @@
 session_start();
 require '../config/database.php';
 header('Content-Type: application/json');
+
+$user_id = $_SESSION['user_id']; 
  $id = (int) $_POST['ids'];
  $action = $_POST['action'];
  if($action == "plus"){
@@ -18,7 +20,7 @@ header('Content-Type: application/json');
  }
  
 mysqli_query($conn,$sql);
-$sql = "SELECT ofprice,quantity FROM card ";
+$sql = "SELECT ofprice,quantity FROM card where user_id='$user_id' ";
 $result = mysqli_query($conn,$sql);
 $totalprice = 0;
   while($row = $result->fetch_assoc()){

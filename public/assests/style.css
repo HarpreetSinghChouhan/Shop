@@ -18,7 +18,7 @@
   /* background: repeating-linear-gradient(red,green,transparent); */
   background: radial-gradient(
     transparent,
-    rgb(223, 216, 216),
+    rgb(223, 216, 216)
     rgb(193, 215, 193)
   );
   box-shadow: 0px 0px 5px 2px rgb(20, 21, 22);
@@ -45,7 +45,7 @@
     background: linear-gradient(305deg, #e18383, #81ff81, #ce71ce);
   }
 }
-
+ 
 #menu {
   background-color: red;
   height: 100vh;

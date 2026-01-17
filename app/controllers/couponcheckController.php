@@ -1,7 +1,9 @@
 <?php
+session_start();
+$user_id = $_SESSION['user_id'];
 include '../config/database.php';
 include '../models/coupon.php';
-$sql = "SELECT * FROM card";
+$sql = "SELECT * FROM card WHERE user_id=$user_id";
 $result = mysqli_query($conn, $sql);
 $totalprice = 0;
 while ($row = $result->fetch_assoc()) {
