@@ -7,7 +7,7 @@ $name = trim($_POST['UserName']);
 $file = $_FILES['UploadFile'];
 $fname = $file['name'];
 if($name == ""){
-    header("location: harpreet%20Singh/Shop/public/edituser.php?id=$email error=nm");
+    header("location: harpreet_Singh/Shop/public/edituser.php?id=$email error=nm");
     // exit;
 }
 if ($fname === "") {
@@ -20,6 +20,6 @@ else{
 }
 $sql = "UPDATE users set name='$name' ,profile_image='$fname', FilePath='$pfile' WHERE email='$email'";
  mysqli_query($conn,$sql);
- header("location: /harpreet%20Singh/Shop/public/edituser.php?id=$email");
+ header("location: /harpreet_Singh/Shop/public/edituser.php?id=$email");
 
 ?>

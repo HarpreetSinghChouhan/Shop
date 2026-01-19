@@ -13,13 +13,13 @@
          $_SESSION['user_id'] = $user1['id'];
          $_SESSION['auth'] = $user1['name']; 
   
-        header("location: /harpreet%20Singh/Shop/public/index.php");
+        header("location: /harpreet_Singh/Shop/public/index.php");
     }
     else{
-     header("location: /harpreet%20Singh/Shop/public/login.php?error=db");
+     header("location: /harpreet_Singh/Shop/public/login.php?error=db");
     }
   }
    else{
-     header("location: /harpreet%20Singh/Shop/public/login.php?error=db");
+     header("location: /harpreet_Singh/Shop/public/login.php?error=db");
    }
 ?>

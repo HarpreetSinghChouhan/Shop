@@ -28,7 +28,6 @@ if ($pdescription === "") {
   ]);
   exit;
 }
-// var_dump($var);
 if ($pofprice > $pnprice) {
   echo json_encode([
     "status" => "Error",
@@ -41,9 +40,9 @@ $sql = "INSERT INTO productsapp (product_name,product_ofprice,product_tprice,pro
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sddsssiss", $pname, $pofprice, $pnprice, $file, $ptimage, $pdescription, $pstock, $pstatus, $pCategory);
 if ($stmt->execute()) {
-  header("location: /harpreet Singh/Shop/public/index.php?success=1");
+  header("location: /harpreet_Singh/Shop/public/index.php?success=1");
 } else {
-  header("location: /harpreet Singh/Shop/public/product.php?error=db");
+  header("location: /harpreet_Singh/Shop/public/product.php?error=db");
 }
 $stmt->close();
 $conn->close();

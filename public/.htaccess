@@ -2,12 +2,8 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /Shop/public/
-
-# If file or folder exists, serve it
+RewriteBase /harpreet_Singh/Shop/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# Send everything else to index.php
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^(.*)$ index.php [QSA,L]
 </IfModule>

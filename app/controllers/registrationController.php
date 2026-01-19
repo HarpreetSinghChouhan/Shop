@@ -5,7 +5,7 @@ $email = $_POST['email'];
 $user = User::findByEmail($email, $conn);
 print_r($user);
 if ($user) {
-    header("location: /harpreet%20Singh/Shop/public/register.php?error=val");
+    header("location: /harpreet_Singh/Shop/public/register.php?error=val");
 } else {
     $username = $_POST['Name'];
     $file = $_FILES['FileUpload'];
@@ -15,7 +15,7 @@ if ($user) {
     $path = "uploads/" . basename($nfile);
 
     if ($nfile === "") {
-        header("location: /harpreet%20Singh/Shop/public/register.php?error=vali");
+        header("location: /harpreet_Singh/Shop/public/register.php?error=vali");
     } else {
         move_uploaded_file($pfile, "../../public/$path");
         $sql = "INSERT INTO users (name,email,password1,profile_image,FilePath) value(?,?,?,?,?)";
@@ -25,7 +25,7 @@ if ($user) {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssss", $username, $email, $password, $nfile, $path);
         if ($stmt->execute()) {
-            header("location: /harpreet%20Singh/Shop/public/login.php");
+            header("location: /harpreet_Singh/Shop/public/login.php");
         }
     }
 }
