@@ -92,23 +92,22 @@
                                              <div>₹ <?php echo $data[$key]['ofprice'] ?> / <del> ₹<?php echo $data[$key]['price'] ?></del></div>
                                          </div>
                                      </div>
-                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn2-btn" data-action="minus" id="min-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>">-</button>
-                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span> <button class="btn btn-primary qtn2-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus">+</button>
+                                     <div class="mt-1 me-2"><button class="btn btn-primary qtn2-btn <?php if ($data[$key]['quantity'] < 2) {
+                                       echo 'disabled';} ?> " data-action="minus" id="min-<?php echo $data[$key]['id']; ?>" data-id="<?php echo $data[$key]['id']; ?>">-</button>
+                                         <span id="qtn-<?php echo $data[$key]['id']; ?>"><?php echo $data[$key]['quantity'] ?></span>
+                                         <button class="btn btn-primary qtn2-btn" data-id="<?php echo $data[$key]['id']; ?>" data-action="plus">+</button>
                                          <button type="button" class="btn btn-danger qtn1-rem" data-id="<?php echo $data[$key]['id']; ?>">Remove</button>
                                      </div>
                                  </div>
                              </div>
-
                      <?php
                                 $totalprice += $data[$key]['ofprice'] * $data[$key]['quantity'];
                             }
                             echo  "<div class='text-end' >Total price : ₹ <span id='totalprice' >" .
                                 $totalprice . "</span></div>";
                         } else {
-
                             echo "<h5> <b> ADD Item In Card <b></h5>";
                         }
-
                         ?>
                  </div>
              </div>

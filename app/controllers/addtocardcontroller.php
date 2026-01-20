@@ -26,9 +26,18 @@ $sql = "INSERT INTO card (product_id,user_id,user_name,product_name,quantity,pro
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("iisssdd",$product_id,$user_id,$user_name,$product_name,$product_image,$ofprice,$price);
   if($stmt->execute()){
+    $sql = "SELECT quantity,product_id FROM card WHERE user_id=$UserId";
+    $result = mysqli_query($conn,$sql);
+    // $result = $result['quantity'];
+    $quantity = [];
+    while($row = $result->fetch_assoc()){
+        $quantity [] = $row['quantity'];
+    }
    echo json_encode([
     "status" => "success",
-    "message" => "Data Are Saved in Table"
+    "message" => "Data Are Saved in Table",
+    "quantity" => count($quantity,COUNT_NORMAL),
+    "user" => $UserId
    ]);
   }
  else{

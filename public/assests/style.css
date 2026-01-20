@@ -28,6 +28,10 @@
   background: linear-gradient(15deg, #e18383 , #81ff81 ,#ce71ce);
   /* animation: trasform 5s infinite cubic-bezier(0.46, 0.03, 0.4, -0.26); */
 }
+#imageCAROUSEL{
+  width: 100%;
+  height: 400px;
+}
 @keyframes trasform {
   0% {
     background: linear-gradient(5deg, #e18383, #81ff81, #ce71ce);
@@ -45,7 +49,14 @@
     background: linear-gradient(305deg, #e18383, #81ff81, #ce71ce);
   }
 }
- 
+.carousel-control-prev{
+ width:7%;
+ color: #81ff81;
+ }
+ .carousel-control-next{
+ width:7%;
+ color: #81ff81;
+ }
 #menu {
   background-color: red;
   height: 100vh;

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (data.status < 2) {
             document.getElementById("min1-" + CardId).disabled = true;
           } else {
-            document.getElementById("min1-" + CardId).disabled = false;
+            document.getElementById("min1-" + CardId).disabled = 'false';
           }
           document.getElementById("qtnt-" + CardId).innerHTML = data.status;
           document.getElementById("totalprice1").innerHTML = data.price;
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function () {
       const CardId = this.dataset.id;
       const actions = this.dataset.action;
-      //   console.log("Hello Every One"  , );
       const form = new FormData();
       form.append("ids", CardId);
       form.append("action", actions);
@@ -42,8 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           if (data.status < 2) {
             document.getElementById("min-" + CardId).disabled = true;
+            document.getElementById("min-" + CardId).classList = "btn-primary btn disabled";
           } else {
             document.getElementById("min-" + CardId).disabled = false;
+
+            document.getElementById("min-" + CardId).classList = "btn-primary btn";
           }
           document.getElementById("qtn-" + CardId).innerHTML = data.status;
 
@@ -108,14 +110,17 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function () {
       const from = new FormData();
       from.append("id",btn.id);
-      console.log();
+      // console.log();
       fetch("../app/controllers/addtocardcontroller.php", {
         method: "post",
         body: from,
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
+          if(data.quantity){
+            document.getElementById("Cartn").innerHTML = data.quantity; 
+          }
         });
     });
   });
@@ -165,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
-  // function paytmonsubmit(){
   const orderbtn = document.querySelectorAll("#paytmonsubmit");
    orderbtn.forEach((btn)=>{
     btn.addEventListener("click",function(e){
