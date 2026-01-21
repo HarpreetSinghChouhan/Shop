@@ -55,7 +55,7 @@ $coupon = coupon::findCoupon($token, $conn);
     }
   }
   $id = $coupon['id'];
-    $sql = "UPDATE discount SET is_used = is_used + 1 WHERE id=$id";
+    $sql = "UPDATE `discount` SET is_used = is_used + 1 WHERE id=$id";
   mysqli_query($conn,$sql);
   echo json_encode([
     "status" => "success",

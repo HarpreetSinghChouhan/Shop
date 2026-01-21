@@ -19,16 +19,19 @@ $result = mysqli_query($conn,$sql);
         </thead>
         <tbody>
         <?php 
+        $id = 1;
         while($row = $result->fetch_assoc()){
-        ?><tr  >
-        <td class="p-3" ><?php echo $row['id'] ?></td>
+        ?><tr id="tr-<?php echo $row['id'] ?>" >
+        <td class="p-3" ><?php echo $id ?></td>
         <td class="p-3" > <img src="../public/<?php echo $row['FilePath'] ?>" alt="" width="70" class="rounded-circle " srcset=""></td>
         <td class="p-3" ><?php echo $row['name'] ?></td>
         <td class="p-3" ><?php echo $row['email'] ?></td>
-        <td class="p-3" ><div class="d-flex" ><a href="../public/edituser.php?id=<?php echo $row['email'] ?>"><input type="button" value="Edit" class="pe-4 ps-4 me-2 ms-3 btn btn-primary"></a>
-        <a href="../app/controllers/userdetelecontroller.php?id=<?php echo $row['id'] ?>"><input type="button" value="Delete" class="pe-4 ps-4 me-2 ms-3 btn btn-danger"></a></div></td>
+        <td class="p-3" ><div class="d-flex" ><a href="edituser/<?php echo $row['id']; ?>"><input type="button" value="Edit" class="pe-4 ps-4 me-2 ms-3 btn btn-primary"></a>
+       <input type="button" value="Delete" class="pe-4 ps-4 me-2 ms-3 btn btn-danger dlbtn_user" id="<?php echo $row['id']  ?>"></div></td>
         </tr>
-        <?php } ?> 
+        <?php 
+        $id++;
+        } ?> 
         </tbody>
        </table>
       

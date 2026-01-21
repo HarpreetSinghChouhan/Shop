@@ -40,9 +40,11 @@ $sql = "INSERT INTO productsapp (product_name,product_ofprice,product_tprice,pro
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sddsssiss", $pname, $pofprice, $pnprice, $file, $ptimage, $pdescription, $pstock, $pstatus, $pCategory);
 if ($stmt->execute()) {
-  header("location: /harpreet_Singh/Shop/public/index.php?success=1");
+  header("location: /harpreet_Singh/Shop/public/index");
+  exit;
 } else {
   header("location: /harpreet_Singh/Shop/public/product.php?error=db");
+  exit;
 }
 $stmt->close();
 $conn->close();

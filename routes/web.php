@@ -1,19 +1,16 @@
-<?php 
-declare(strict_types=1);
-class Routes {
-    private array $routes = [];
-    public function add(string $path , Closure $handler):void {
-        $this-> routes[$path]= $handler;
-    }
-    public function dispatch(string $path){
-        if(array_key_exists($path,$this->routes)){
-            $handler = $this->routes[$path];
-            call_user_func($handler);
-        }
-        else{
-            echo "page not found";
-        }
-    }
-}
+<?php
 
-?>
+return [
+    '' => 'index.php',
+    'index' => 'index.php',
+    'login' => 'login.php',
+    'logout' => 'logout.php',
+    'register' => 'register.php',
+    'checkout' => 'checkout.php',
+    'product' => 'product.php',
+    'coupon' => 'coupon.php',
+    'description' => 'description.php',
+    'userdata' => 'userdata.php',
+    'vuecoupon' => 'vuecoupon.php',
+    'edituser' => 'edituser.php',
+];

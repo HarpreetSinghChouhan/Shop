@@ -18,7 +18,7 @@ if ($user) {
         header("location: /harpreet_Singh/Shop/public/register.php?error=vali");
     } else {
         move_uploaded_file($pfile, "../../public/$path");
-        $sql = "INSERT INTO users (name,email,password1,profile_image,FilePath) value(?,?,?,?,?)";
+        $sql = "INSERT INTO `users` (name,email,password1,profile_image,FilePath) value(?,?,?,?,?)";
 
         $passs = $_POST['password'];
         $password = password_hash($passs, PASSWORD_DEFAULT);

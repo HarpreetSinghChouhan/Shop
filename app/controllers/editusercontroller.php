@@ -20,6 +20,7 @@ else{
 }
 $sql = "UPDATE users set name='$name' ,profile_image='$fname', FilePath='$pfile' WHERE email='$email'";
  mysqli_query($conn,$sql);
- header("location: /harpreet_Singh/Shop/public/edituser.php?id=$email");
+ $userid =$user['user_id'];
+ header("location: /harpreet_Singh/Shop/public/edituser/$userid");
 
 ?>

@@ -117,9 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data);
+          console.log(data);
           if(data.quantity){
-            document.getElementById("Cartn").innerHTML = data.quantity; 
+            document.querySelectorAll("Cartn").innerHTML = data.quantity; 
           }
         });
     });
@@ -178,6 +178,35 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("paytm_amount").value = totalprice;
     // console.log(totalprice);
      document.getElementById("paytm_form").submit();
+    })
+   })
+   const dlbtnuser = document.querySelectorAll('.dlbtn_user');
+   dlbtnuser.forEach((btn)=>{
+    btn.addEventListener("click",function(e){
+      e.preventDefault();
+      if(confirm("Are You Want User Delete")){
+        //  console.log(e.target.id);
+        const form = new FormData();
+        let id = e.target.id;
+        form.append('id',id);
+        fetch("../app/controllers/userdetelecontroller.php",{
+          method:"POST",
+          body:form,
+        })
+        .then(
+          res => res.json()
+        )
+        .then(
+          (data)=>{
+            if(data.status === "success"){
+              document.getElementById('tr-'+id).style.display = "none";
+            }
+            else{
+              alert(data.message);
+            }
+          }
+        )
+      }
     })
    })
 });

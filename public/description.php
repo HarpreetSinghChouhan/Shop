@@ -85,7 +85,7 @@ while ($row = $result->fetch_assoc()) {
                         </ul>
                     </div>
                        <div>
-                          <button class="btn btn-primary AddToCart" id="<?php echo $row['productid']  ?>" > ADD TO CARD </button>
+                          <button class="btn btn-primary AddToCart" id="<?php echo $product_id  ?>" > ADD TO CARD </button>
                      </div>
                 </div>
 
@@ -109,7 +109,7 @@ while ($row = $result->fetch_assoc()) {
                                 <?php foreach ($products as $item): ?>
                                     <div class="col-md-4">
                                         <div class="card mb-3">
-                                           <a href="description.php?id=<?php echo $item['id'] ?>"> <img src="<?= $item['image'] ?>" id="imageCAROUSEL"  height="390" alt="<?= htmlspecialchars($item['product_name']) ?>"></a>
+                                           <a href="<?php echo "../description/" . $item['id'] ?>"> <img src="<?= $item['image'] ?>" id="imageCAROUSEL"  height="390" alt="<?= htmlspecialchars($item['product_name']) ?>"></a>
                                             <div class="card-body">
                                                 <h5 class="card-title"><?= htmlspecialchars($item['product_name']) ?></h5>
                                                 <p class="card-text">

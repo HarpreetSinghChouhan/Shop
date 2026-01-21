@@ -12,9 +12,10 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
         // print_r($data); 
         ?>
         <div id="carditem" class="border p-5">
-            <?php
+            <?php 
+             $totalprice = 0;
             if ($totalc > 0) {
-                $totalprice = 0;
+              
                 echo "<div class='border p-3' >";
                 foreach ($data as $key => $value) { ?>
                     <div class="card p-3 mb-4" id="card1-<?php echo $data[$key]['id']; ?>">
@@ -47,8 +48,8 @@ $sql = "SELECT * FROM card WHERE user_id=$userId";
 
 
             <div class="mt-4 text-end">
-                <a href="../public/index.php"><button type="button" class="btn btn-secondary">Add More product</button></a>
-                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#tokencheckmodel"> Order Place</button>
+                <a href="home"><button type="button" class="btn btn-secondary">Add More product</button></a>
+                <button type="button" class="btn btn-primary <?php if($totalprice <=0){echo 'disabled';}?>" data-bs-toggle="modal" data-bs-target="#tokencheckmodel"> Order Place</button>
             </div>
         </div>
         <div>

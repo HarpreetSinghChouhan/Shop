@@ -1,9 +1,23 @@
-Options -Indexes
-
 <IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /harpreet_Singh/Shop/public/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+    # Disable directory browsing
+    Options -Indexes
+
+    # Enable URL rewriting
+    RewriteEngine On
+    
+    # Set the base path (adjust this to match your project path)
+    RewriteBase /harpreet_Singh/Shop/public/
+    
+    # If the request is for a real file or directory, serve it directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # Otherwise, route everything through index.php
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 </IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "(^\.htaccess|composer\.json|composer\.lock|package\.json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

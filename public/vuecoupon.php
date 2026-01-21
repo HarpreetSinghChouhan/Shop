@@ -41,6 +41,7 @@ $result = mysqli_query($conn, $sql)
             </tbody>
 
         </table>
+        <!-- <iframe src="https://claude.site/public/artifacts/02d88908-cfe2-4d1c-a6bc-9076ebcfeae6/embed" title="Claude Artifact" width="100%" height="600" frameborder="0" allow="clipboard-write" allowfullscreen></iframe> -->
     </div>
 </main>
 <?php

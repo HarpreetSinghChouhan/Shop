@@ -18,7 +18,7 @@ $User = User::findByUserId($UserId, $conn);
  $price = $product['product_tprice'];
  $user_id = $User['id'];
  $user_name = $User['name'];
-$sql = "INSERT INTO card (product_id,user_id,user_name,product_name,quantity,product_image,ofprice,price)
+$sql = "INSERT INTO `card` (product_id,user_id,user_name,product_name,quantity,product_image,ofprice,price)
   VALUES (?,?,?,?,1,?,?,?)
   ON DUPLICATE KEY UPDATE
   quantity = quantity + 1  
@@ -26,7 +26,7 @@ $sql = "INSERT INTO card (product_id,user_id,user_name,product_name,quantity,pro
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("iisssdd",$product_id,$user_id,$user_name,$product_name,$product_image,$ofprice,$price);
   if($stmt->execute()){
-    $sql = "SELECT quantity,product_id FROM card WHERE user_id=$UserId";
+    $sql = "SELECT quantity,product_id FROM `card` WHERE user_id=$UserId";
     $result = mysqli_query($conn,$sql);
     // $result = $result['quantity'];
     $quantity = [];

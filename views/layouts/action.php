@@ -21,9 +21,6 @@
             "price" => $row['price']
         ];
     }
-    // echo "<pre>";
-    // print_r($data);
-    // echo "</pre>";
     $totalc = count($data, COUNT_NORMAL);
     ?>
 
@@ -48,12 +45,12 @@
              <div class="collapse navbar-collapse " id="mainnavbar">
 
                  <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                     <li class="nav-item mx-1"><a href="index.php" class="nav-link">PRODUCTS</a></li>
-                     <li class="nav-item mx-1"><a href="userdata.php" class="nav-link">USERS</a></li>
-                     <li class="nav-item mx-1"><a href="vuecoupon.php" class="nav-link">COUPON</a></li>
-                     <li class="nav-item mx-1"><a href="../public/logout.php" onclick="return confirm('Are you Want logout')" class="nav-link">LOG OUT</a></li>
-                     <li class="nav-item mx-1"><a href="coupon.php" class="nav-link">CREATE COUPON</a></li>
-                     <li class="nav-item mx-1"><a href="Product.php" class="nav-link">ADD NEW PRODUCT</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/home" class="nav-link">PRODUCTS</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/userdata" class="nav-link">USERS</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/vuecoupon" class="nav-link">COUPON</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/logout" onclick="return confirm('Are you Want logout')" class="nav-link">LOG OUT</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/coupon" class="nav-link">CREATE COUPON</a></li>
+                     <li class="nav-item mx-1"><a href="/harpreet_Singh/Shop/public/product" class="nav-link">ADD NEW PRODUCT</a></li>
                  </ul>
                  <div class="d-md-none d-lg-flex">
                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> Cart
@@ -113,7 +110,7 @@
              </div>
              <div class="modal-footer">
                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                 <a href="checkout.php"><button type="button" class="btn btn-primary">Check Out</button></a>
+                 <a href="checkout"><button type="button" class="btn btn-primary">Check Out</button></a>
              </div>
          </div>
      </div>
